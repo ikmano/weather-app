@@ -1,4 +1,4 @@
-import { displayData } from "./DOM_fn";
+import { displayData, displayCurrent } from "./DOM_fn";
 import { getCoordURL, getWeatherURL } from "./utils";
 
 let data = {};
@@ -28,8 +28,9 @@ async function getWeather(data, city) {
     mode: "cors",
   });
   const weatherData = await response.json();
-
+  console.log(weatherData);
   displayData(data, weatherData.current);
+  displayData(data, weatherData.daily);
 }
 
 export { data, getWeather };

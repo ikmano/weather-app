@@ -3,8 +3,17 @@ function makeNavbar() {
 
   const locationForm = document.createElement("form");
   const input = document.createElement("input");
+  input.type = "text";
+  input.id = "input";
+  input.className = "form__input";
   input.placeholder = "Enter Location...";
   locationForm.append(input);
+  const submit = document.createElement("input");
+  submit.type = "submit";
+  submit.className = "btn";
+  submit.classList.add("submit");
+  submit.innerHTML = "submit";
+  locationForm.append(submit);
   navbar.append(locationForm);
 
   const navLinks = document.createElement("div");

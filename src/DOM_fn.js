@@ -1,5 +1,16 @@
 import { timeConverter_date, timeConverter_time, getIconURL } from "./utils";
+
 const content = document.querySelector(".content");
+const cityHeader = document.querySelector(".city");
+
+const days = ["0", "1", "2", "3", "4", "5", "6", "7"];
+
+function getCity() {
+  return document.getElementById("input").value;
+}
+function fillCityHeader() {
+  cityHeader.innerHTML = input.value;
+}
 
 /**
  * make div element that contains given weather data
@@ -28,8 +39,7 @@ function makeDiv(key, value) {
  * @param {*} obj object from which the info is extracted
  */
 function displayData(data, obj) {
-  const keys = Object.keys(obj);
-
+  let keys = Object.keys(obj);
   console.log(keys); //development/debugging purposes
 
   keys.forEach((key) => {
@@ -37,7 +47,7 @@ function displayData(data, obj) {
     //--> recursively extract data from all objects
     //specific for the object structure that is awaited
     //TODO: refactor to be non-specific
-    if (key === "weather" || key === "0") {
+    if (key === "weather" || days.includes(key)) {
       return displayData(data, obj[key]);
     }
 
@@ -61,8 +71,8 @@ function displayData(data, obj) {
       data[key] = obj[key]; //dvelopment/debugging purposes
     }
 
-    makeDiv(key, data[key]);
+    makeDiv(key, data[key], parent);
   });
 }
 
-export { displayData };
+export { displayData, getCity, fillCityHeader };
