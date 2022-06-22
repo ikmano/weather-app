@@ -1,22 +1,17 @@
 //import "./style/main.scss";
-import { data, getWeather } from "./data_fn";
-import makeNavbar from "./frame";
-import { getCity } from "./DOM_fn";
+import renderWeather from "./renderWeather";
+import { loader, loaded, activate } from "./loader";
 
-function removeAllChildNodes(parent) {
+/*function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
-}
+}*/
 
-makeNavbar();
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault(); // prevent actual submit
-  removeAllChildNodes(document.querySelector(".content"));
-
-  getWeather(data, getCity());
-  //fillCityHeader();
+  //removeAllChildNodes(document.querySelector(".current-weather"));
+  activate(loader);
+  loaded(renderWeather());
 });
-
-//getWeather(data, "Bratislava");
