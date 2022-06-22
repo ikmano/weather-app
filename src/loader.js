@@ -1,4 +1,5 @@
 const loader = document.getElementById("loader");
+const contentWraper = document.querySelector(".content-wrapper");
 
 function activate(div) {
   div.classList.remove("deactivate");
@@ -7,16 +8,21 @@ function activate(div) {
 }
 function deactivate(div) {
   div.classList.remove("activate");
-  div.classList.add("fadeoutbcg");
   setTimeout(() => {
-    div.classList.add("deactivate");
-  }, 1000);
+    div.classList.add("fadeoutbcg");
+    setTimeout(() => {
+      div.classList.add("deactivate");
+    }, 1000);
+  }, 500);
 }
 
 async function loaded(rendered) {
   const done = await rendered;
+  activate(contentWraper);
   if (done) {
-    deactivate(loader);
+    setTimeout(() => {
+      deactivate(loader);
+    }, 1000);
   }
 }
 

@@ -1,4 +1,4 @@
-import { getOutputDiv } from "./domUtils";
+import { getOutputDiv, makeOutputDiv } from "./domUtils";
 
 const parent = getOutputDiv(".date-time-place");
 
@@ -10,10 +10,10 @@ function makeBtn() {
 }
 
 function makeDTP(arr) {
-  arr.forEach((element) => {
-    parent.append(element);
-  });
-  parent.append(makeBtn());
+  parent.append(arr[0]);
+  parent.append(arr[1]);
+  arr[2].append(makeBtn());
+  parent.append(arr[2]);
 }
 
 export default makeDTP;

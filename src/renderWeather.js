@@ -5,9 +5,15 @@ import { makeMainInfo } from "./mainInfo";
 import { getCity } from "./domUtils";
 import makeDetailed from "./detailed";
 import makeForcastDiv from "./forcast";
+import { capitalize } from "./utils";
 
 async function renderWeather() {
-  const city = getCity();
+  let city = getCity();
+  if (city === "") {
+    city = "London";
+  } else {
+    city = capitalize(city);
+  }
   const { alert, current, daily } = await getWeather(city);
 
   console.log(daily[0].weather[0].description);
@@ -39,7 +45,7 @@ async function renderWeather() {
     div.uvDiv("uv", current.uvi),
     div.sunriseDiv("sunrise", current.sunrise),
     div.sunsetDiv("sunset", current.sunset),
-    div.sunsetDiv("dew", current.dew_point),
+    div.dewDiv("dew", current.dew_point),
   ];
   makeDetailed(arrDetailed);
 
@@ -49,7 +55,6 @@ async function renderWeather() {
       div.minMaxTempDiv("temp", daily[i].temp.min, daily[i].temp.max),
       div.iconDiv("icon", daily[i].weather[0].icon),
       div.dateDiv("date", daily[i].dt),
-
       div.humidityDiv("humidity", daily[i].humidity),
       div.windDiv("wind", daily[i].wind_speed),
       div.pressureDiv("pressure", daily[i].pressure),

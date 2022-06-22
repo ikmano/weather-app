@@ -1,7 +1,7 @@
 .preloader{
   height: 100vh;
   width: 100vw;
-  background-color: rgb(241, 241, 241);
+  background-color: $secondary-color-orig;
   transition: background-color 1s linear;
   position: fixed;
   z-index: 100;
@@ -19,7 +19,7 @@
 
 .circle {
   display: inline-block;
-  background-color: rgb(104, 104, 228);
+  background-color: $primary-color;
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
@@ -29,7 +29,7 @@
 }
 
 .circle:nth-child(2) {
-  background-color: rgb(250, 148, 52);
+  background-color: $quartery-color;
   animation-delay: 0.75s;
 }
 

@@ -1,4 +1,4 @@
-import { capitalize } from "./utils";
+//import { capitalize } from "./utils";
 
 function getOutputDiv(selector) {
   const div = document.querySelector(selector);
@@ -17,12 +17,13 @@ function makeOutputDiv(id, clss) {
 
 function getCity() {
   const location = document.getElementById("city-input").value;
-  if (location === "") {
+  /*if (location === "") {
     throw new Error(
       'empty form_input \n form_input-id: "city-input" \n form-class: "form" \n function: getCity() in domUtils.js'
     );
-  }
-  return capitalize(location);
+    
+  }*/
+  return location;
 }
 
 export { getOutputDiv, makeOutputDiv, getCity };

@@ -1,0 +1,146 @@
+@import "./resets";
+@import "./variables";
+@import "./loader";
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+body{
+  font-size: 1.6rem;
+  background-color: $secondary-color;
+  color: $trinary-color;
+}
+.content-wrapper{
+  @include flex(column, center, center);
+}
+::placeholder{
+  color: #cbcbcb;
+}
+input{
+  border-radius: 1rem;
+  padding: 0 1rem;
+  box-shadow: 0 0 15px 20px rgba(255, 255, 255, 0.4);
+}
+i{
+  color: $trinary-color;
+}
+
+.navbar{
+  width: 100%;
+  height: 5rem;
+  background: $secondary-color;
+  padding: 1rem 1.5rem;
+  @include flex(row, space-between, center);
+  box-shadow: 0 0 1rem $trinary-color;
+}
+
+.btn{
+  background-color: Transparent;
+}
+
+.weather-content{
+  @include flex(column, baseline, center);
+
+  .date-time-place{
+    padding: 3rem 0 1.5rem;
+    @include flex(column, baseline, center);
+    line-height: 1;
+
+    #location{
+      font-size: 2.2rem;
+    }
+
+    .btn{
+      font-size: small;
+    }
+ }
+ .weather-info{
+ 
+    #desc{
+      font-size: 2.6rem;
+      text-align: center;
+      color: $primary-color;
+    }
+    .main-temp{
+      @include flex(row, center, center);
+      background-color: rgba(255, 255, 255, 0.45);
+      border-radius: 10rem;
+      box-shadow: 0 0 15px 20px rgba(255, 255, 255, 0.4);
+    
+    .temperature{
+      width:100px;
+      height: 100px;
+      padding: 10px;
+      @include flex(column, center, flex-start);
+    
+      #temp{
+        font-size: 4.6rem;
+        line-height: 0.8;
+        color: $primary-color;
+      }
+      #feels{
+        font-size: 1.4rem;
+      }
+    }
+  } 
+ }
+}
+hr{
+  width: 80%;
+}
+h2{
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: $quartery-color;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.074);
+}
+.detailed-info{
+  width: 80%;
+  @include flex(row, center, center);
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.074);
+  
+}
+.left-side{
+  width: 50%;
+  padding-left: 1rem;
+}
+.right-side{
+  padding-left: 1rem;
+  width: 50%;
+}
+.h2{
+  padding-left: 10%;
+  align-self: flex-start;
+}
+.forcast{
+  color: $primary-color;
+  font-weight: bold;
+}
+.daily-forcast{
+  width:80%;
+  
+}
+.daily{
+  margin: 1rem 0;
+  padding: 1rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.353);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2),
+  0 0 10px rgba(0, 0, 0, 0.05) inset;
+  border-radius: 1rem;
+}
+#daily-icon{
+  width: 45px;
+  height: auto;
+}
+footer{
+  position: relative;
+  bottom: 0;
+  text-align: center;
+  padding: 1.5rem;
+}
+
