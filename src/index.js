@@ -1,15 +1,9 @@
 import "./scss/style.scss";
 import renderWeather from "./renderWeather";
 import { loader, loaded, activate } from "./loader";
-import { getOutputDiv } from "./domUtils";
+import { removeChildren } from "./domUtils";
 
-/*function removeAllChildNodes(parent) {
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild);
-  }
-}*/
-
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   activate(loader);
   loaded(renderWeather());
 
@@ -18,6 +12,7 @@ window.addEventListener("load", () => {
     e.preventDefault(); // prevent actual submit
     //removeAllChildNodes(document.querySelector(".current-weather"));
     activate(loader);
+    removeChildren();
     loaded(renderWeather());
   });
 });

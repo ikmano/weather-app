@@ -24,7 +24,9 @@ input{
   border-radius: 1rem;
   padding: 0 1rem;
   box-shadow: 0 0 15px 20px rgba(255, 255, 255, 0.4);
+  color: $primary-color;
 }
+
 i{
   color: $trinary-color;
 }
@@ -40,6 +42,12 @@ i{
 
 .btn{
   background-color: Transparent;
+}
+.btn:hover{
+  cursor: pointer;
+  i{
+    color: $quartery-color;
+  }
 }
 
 .weather-content{

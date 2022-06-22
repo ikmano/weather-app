@@ -1,4 +1,5 @@
 import { getOutputDiv, makeOutputDiv } from "./domUtils";
+import { reload } from "./domUtils";
 
 const parent = getOutputDiv(".date-time-place");
 
@@ -6,6 +7,7 @@ function makeBtn() {
   const btn = document.createElement("button");
   btn.classList = "btn";
   btn.innerHTML = `<i class="fa fa-rotate-right"></i>`;
+  btn.onclick = reload;
   return btn;
 }
 

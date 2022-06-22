@@ -1,4 +1,30 @@
-//import { capitalize } from "./utils";
+import { activate, loaded, loader } from "./loader";
+import renderWeather from "./renderWeather";
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+function removeChildren() {
+  const parentArr = [
+    getOutputDiv(".date-time-place"),
+    getOutputDiv(".weather-info"),
+    getOutputDiv(".detailed-info"),
+    getOutputDiv(".daily-forcast"),
+  ];
+
+  parentArr.forEach((parent) => {
+    removeAllChildNodes(parent);
+  });
+}
+
+function reload() {
+  activate(loader);
+  removeChildren();
+  loaded(renderWeather());
+}
 
 function getOutputDiv(selector) {
   const div = document.querySelector(selector);
@@ -26,4 +52,4 @@ function getCity() {
   return location;
 }
 
-export { getOutputDiv, makeOutputDiv, getCity };
+export { getOutputDiv, makeOutputDiv, getCity, removeChildren, reload };
