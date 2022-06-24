@@ -1,4 +1,4 @@
-import { activate, loaded, loader } from "./loader";
+import { activate, loaded, preloader } from "./loader";
 import renderWeather from "./renderWeather";
 
 function removeAllChildNodes(parent) {
@@ -21,7 +21,7 @@ function removeChildren() {
 }
 
 function reload() {
-  activate(loader);
+  activate(preloader);
   removeChildren();
   loaded(renderWeather());
 }

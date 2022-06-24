@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <!--<link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./loader.css">-->
     <title>Weather App</title>
     
 </head>
@@ -17,7 +15,7 @@
     <div class="circle"></div>
   </div>
   </div>
-    <div class="content-wrapper deactivate">
+    <div class="content-wrapper">
         <nav class="navbar">
             <form class="form">
               <input type="text" id="city-input" class="f-input" placeholder="Enter Location..." onfocus="this.value=''">
@@ -27,24 +25,24 @@
                 <i class="fa fa-bars"></i>
             </button>
         </nav>
-        <div class="weather-content">
+        <div class="weather-content deactivate">
 
             <div class="current-weather">    
               <div class="date-time-place"></div>
               <div class="weather-info"></div>
             </div>
-        <hr>
         <h2 class="h2 detailed">Detailed</h2>
         <div class="detailed-info"></div>  
         <h5 class="h2 forcast">7 day forcast</h5>
             <div class="daily-forcast"></div>
+          </div>
         <footer class="footer">
             <div class="copyright">
                 ©Copyright 2022
             </div>
         </footer>
     </div>
-    </div>
+    
     
     <script src="main.js"></script>
 </body>

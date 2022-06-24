@@ -1,5 +1,6 @@
-const loader = document.getElementById("loader");
-const contentWraper = document.querySelector(".content-wrapper");
+const preloader = document.getElementById("loader");
+const contentWraper = document.querySelector(".weather-content");
+const loader = document.querySelector(".loader");
 
 function activate(div) {
   div.classList.remove("deactivate");
@@ -18,12 +19,18 @@ function deactivate(div) {
 
 async function loaded(rendered) {
   const done = await rendered;
+  console.log(done);
+  preloader.innerHTML = "";
   activate(contentWraper);
   if (done) {
     setTimeout(() => {
-      deactivate(loader);
+      deactivate(preloader);
     }, 1000);
+  } else {
+    deactivate(loader);
+    preloader.innerHTML =
+      "ERROR: Could not find entered location! Please check your input and try again.";
   }
 }
 
-export { loaded, loader, activate, deactivate };
+export { loaded, preloader, activate, deactivate };
