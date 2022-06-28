@@ -1,5 +1,5 @@
-import { activate, loaded, preloader } from "./loader";
 import renderWeather from "./renderWeather";
+import { loaded } from "./loader";
 
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
@@ -21,7 +21,6 @@ function removeChildren() {
 }
 
 function reload() {
-  activate(preloader);
   removeChildren();
   loaded(renderWeather());
 }
@@ -42,14 +41,7 @@ function makeOutputDiv(id, clss) {
 }
 
 function getCity() {
-  const location = document.getElementById("city-input").value;
-  /*if (location === "") {
-    throw new Error(
-      'empty form_input \n form_input-id: "city-input" \n form-class: "form" \n function: getCity() in domUtils.js'
-    );
-    
-  }*/
-  return location;
+  return document.getElementById("city-input").value;
 }
 
 export { getOutputDiv, makeOutputDiv, getCity, removeChildren, reload };

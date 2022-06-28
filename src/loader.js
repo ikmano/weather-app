@@ -1,36 +1,33 @@
-const preloader = document.getElementById("loader");
-const contentWraper = document.querySelector(".weather-content");
+const preloader = document.getElementById("preloader");
 const loader = document.querySelector(".loader");
+const err = document.querySelector(".err");
 
 function activate(div) {
   div.classList.remove("deactivate");
-  div.classList.remove("fadeoutbcg");
   div.classList.add("activate");
+}
+function activateLoader() {
+  activate(loader);
+  activate(preloader);
 }
 function deactivate(div) {
   div.classList.remove("activate");
-  setTimeout(() => {
-    div.classList.add("fadeoutbcg");
-    setTimeout(() => {
-      div.classList.add("deactivate");
-    }, 1000);
-  }, 500);
+  div.classList.add("deactivate");
 }
 
 async function loaded(rendered) {
+  activateLoader();
   const done = await rendered;
-  console.log(done);
-  preloader.innerHTML = "";
-  activate(contentWraper);
+
   if (done) {
+    deactivate(err);
     setTimeout(() => {
+      deactivate(loader);
       deactivate(preloader);
-    }, 1000);
+    }, 1500);
   } else {
     deactivate(loader);
-    preloader.innerHTML =
-      "ERROR: Could not find entered location! Please check your input and try again.";
+    activate(err);
   }
 }
-
-export { loaded, preloader, activate, deactivate };
+export { loaded };

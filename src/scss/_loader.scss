@@ -1,17 +1,22 @@
 .preloader{
   width: 100vw;
-  height: calc((100vh) - (5.3rem));
-  color: $quaternary-color;
-  font-size: 2.8rem;
-  font-weight: bold;
-  background-color: $secondary-color-orig;
-  transition: background-color 1s linear;
+ 
+  background-color: $preloader-color;
+  
   position: fixed;
+  top: 5rem;
   bottom: 0;
-  z-index: 100;
+  z-index: 99;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.err{
+  background-color: $quaternary-color;
+  color: $secondary-color-orig;
+  font-size: 2.8rem;
+  font-weight: bold;
 }
 
 .loader {
@@ -29,7 +34,7 @@
   border-radius: 50%;
   transform: scale(0);
   animation: grow 1.5s linear infinite;
-  margin: -0.9rem;
+  margin: -0.7rem;
 }
 
 .circle:nth-child(2) {

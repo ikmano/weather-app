@@ -1,5 +1,5 @@
 function getCoordURL(city) {
-  return `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=fd57668c10f7ada1c6e9a2cbc53e10e1`;
+  return `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=fd57668c10f7ada1c6e9a2cbc53e10e1`;
 }
 
 function getWeatherURL(lat, lon) {
@@ -7,7 +7,7 @@ function getWeatherURL(lat, lon) {
 }
 
 function getIconURL(code) {
-  return `http://openweathermap.org/img/wn/${code}@2x.png`;
+  return `https://openweathermap.org/img/wn/${code}@2x.png`;
 }
 
 function timeConverter_date(unix_timestamp) {

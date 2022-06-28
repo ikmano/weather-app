@@ -17,12 +17,6 @@ async function renderWeather() {
   try {
     const { alert, current, daily } = await getWeather(city);
 
-    console.log(daily[0].weather[0].description);
-
-    console.log(current);
-    console.log(daily);
-    console.log(alert);
-
     const arrDTP = [
       div.locationDiv(city),
       div.dateDiv("date", null, current.dt),
@@ -39,6 +33,7 @@ async function renderWeather() {
     makeMainInfo(...arrMain);
 
     const arrDetailed = [
+      div.precipitationDiv("prec", "", current),
       div.humidityDiv("humidity", "", current.humidity),
       div.windDiv("wind", "", current.wind_speed),
       div.visibilityDiv("visibility", "", current.visibility),
@@ -50,7 +45,7 @@ async function renderWeather() {
     ];
     makeDetailed(arrDetailed);
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 1; i < 8; i++) {
       let arrDaily = [
         div.descDiv("desc", "day-detail", daily[i].weather[0].description),
         div.minMaxTempDiv(
@@ -61,13 +56,6 @@ async function renderWeather() {
         ),
         div.iconDiv("icon", "day-detail icon", daily[i].weather[0].icon),
         div.dateDiv("date", "day-detail", daily[i].dt),
-        div.humidityDiv("humidity", "day-detail", daily[i].humidity),
-        div.windDiv("wind", "day-detail", daily[i].wind_speed),
-        div.pressureDiv("pressure", "day-detail", daily[i].pressure),
-        div.uvDiv("uv", "day-detail", daily[i].uvi),
-        div.sunriseDiv("sunrise", "day-detail", daily[i].sunrise),
-        div.sunsetDiv("sunset", "day-detail", daily[i].sunset),
-        div.dewDiv("dew", "day-detail", daily[i].dew_point),
       ];
       makeForcastDiv(i, arrDaily);
     }

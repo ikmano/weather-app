@@ -9,11 +9,12 @@
     
 </head>
 <body>
-  <div id="loader" class="preloader deactivate">
-    <div class="loader">
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
+  <div id="preloader" class="preloader activate">
+    <div class="err deactivate">ERROR: Could not find submited location! Please check your input and try again.</div>
+    <div class="loader deactivate">
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
   </div>
     <div class="content-wrapper">
         <nav class="navbar">
@@ -22,10 +23,10 @@
                 <button type="submit" class="btn"><i class="fa fa-search"></i></button>
             </form>
             <button class="btn">
-                <i class="fa fa-bars"></i>
+                <a href="#"><i class="fab fa-github"></i></a>
             </button>
         </nav>
-        <div class="weather-content deactivate">
+        <div class="weather-content">
 
             <div class="current-weather">    
               <div class="date-time-place"></div>

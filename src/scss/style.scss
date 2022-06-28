@@ -37,6 +37,7 @@ i{
   padding: 1rem 1.5rem;
   @include flex(row, space-between, center);
   box-shadow: 0 0 1rem $tertiary-color;
+  z-index: 100;
 }
 #icon{
   background-color: $primary-color-transparent;
@@ -176,6 +177,7 @@ i{
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.074);
   display: grid;
   grid-template-areas: 
+  'prec prec'
   'hum vis'
   'wind dew'
   'uv rise'
@@ -204,6 +206,9 @@ i{
   #sunset{
     grid-area: set;
   }
+  #prec{
+    grid-area: prec;
+  }
 }
 .forcast{
   color: $primary-color;
@@ -224,8 +229,9 @@ i{
   flex-flow: wrap;
 }
 .daily{
-  min-width: 291px;
-  width:80%;
+  max-width: 150px;
+  width:15rem;
+  height: 23rem;
   overflow: hidden;
   
 }
@@ -283,7 +289,7 @@ footer{
     justify-self: center;
   }
   .daily{
-    max-width: 358px;
+    //max-width: 358px;
     width:100%;
   }
 }
